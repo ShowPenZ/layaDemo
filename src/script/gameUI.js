@@ -11,6 +11,9 @@ export default class GameUI extends Laya.Scene {
         GameUI.instance = this;
     }
 
+    /**
+     * 生命周期初始
+     */
     onEnable() {
         //点击注册
         this.btnReg.on(Laya.Event.CLICK, this, this.onBtnRegEvt, ['对不起，注册功能暂未开放！'])
@@ -19,7 +22,7 @@ export default class GameUI extends Laya.Scene {
     }
 
     /**
-     * 登录事件
+     * 注册事件
      * @param {*} param 
      */
     onBtnRegEvt(param) {
@@ -27,6 +30,10 @@ export default class GameUI extends Laya.Scene {
         scene.load('nomalDigReg.scene', handler.create(this, this.onAssetLoaded, [param]))
     }
 
+    /**
+     * 登录事件
+     * @param {*} param 
+     */
     onBtnLoginEvt(param) {
         scene.load('nomalDigReg.scene', handler.create(this, this.onAssetLoaded, [param]))
     }
