@@ -1,7 +1,9 @@
+import dialogViews from './dialogView.js'
+
 const scene = Laya.Scene;
 const handler = Laya.Handler;
 const Dialog = Laya.Dialog;
-import dialogViews from './dialogView.js'
+
 export default class GameUI extends Laya.Scene {
     constructor() {
         super();
@@ -16,7 +18,10 @@ export default class GameUI extends Laya.Scene {
         this.btnLogin.on(Laya.Event.CLICK, this, this.onBtnLoginEvt, ['对不起，登录功能暂未开放！'])
     }
 
-    //登录事件
+    /**
+     * 登录事件
+     * @param {*} param 
+     */
     onBtnRegEvt(param) {
         // this.loadScene("nomalDigReg.scene");
         scene.load('nomalDigReg.scene', handler.create(this, this.onAssetLoaded, [param]))
@@ -38,7 +43,9 @@ export default class GameUI extends Laya.Scene {
         }));
     }
 
-    //取消监听
+    /**
+     * 取消监听
+     */
     resetListen() {
         this.btnReg.off(Laya.Event.CLICK, this, this.onBtnRegEvt)
         this.btnLogin.off(Laya.Event.CLICK, this, this.onBtnLoginEvt)
