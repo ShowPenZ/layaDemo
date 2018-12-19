@@ -1,6 +1,7 @@
 const scene = Laya.Scene;
 const handler = Laya.Handler;
 const Dialog = Laya.Dialog;
+import dialogViews from './dialogView.js'
 export default class GameUI extends Laya.Scene {
     constructor() {
         super();
@@ -10,27 +11,33 @@ export default class GameUI extends Laya.Scene {
 
     onEnable() {
         //点击注册
-        this.btnReg.on(Laya.Event.CLICK, this, this.onBtnRegEvt)
+        this.btnReg.on(Laya.Event.CLICK, this, this.onBtnRegEvt, ['对不起，注册功能暂未开放！'])
         //点击登录
-        this.btnLogin.on(Laya.Event.CLICK, this, this.onBtnLoginEvt)
+        this.btnLogin.on(Laya.Event.CLICK, this, this.onBtnLoginEvt, ['对不起，登录功能暂未开放！'])
     }
 
     //登录事件
-    onBtnRegEvt() {
-        console.log('Register')
+    onBtnRegEvt(param) {
         // this.loadScene("nomalDigReg.scene");
-        scene.load('nomalDigReg.scene', handler.create(this, this.onAssetLoaded))
+        scene.load('nomalDigReg.scene', handler.create(this, this.onAssetLoaded, [param]))
     }
 
-    onBtnLoginEvt() {
-        console.log('Login')
+    onBtnLoginEvt(param) {
+        scene.load('nomalDigReg.scene', handler.create(this, this.onAssetLoaded, [param]))
     }
 
-    //场景加载完后打开
-    onAssetLoaded() {
-        scene.open('nomalDigReg.scene');
+    /**
+     * 页面装载完成后打开并且传值给页面
+     * @param {*} param 
+     */
+    onAssetLoaded(param) {
+        scene.open('nomalDigReg.scene', false, handler.create(this, (e) => {
+            // console.log(e)
+            this.layaDigView = e;
+            this.layaDigView.dialogLabel.text = param
+        }));
     }
-    
+
     //取消监听
     resetListen() {
         this.btnReg.off(Laya.Event.CLICK, this, this.onBtnRegEvt)

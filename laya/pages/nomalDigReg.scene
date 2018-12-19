@@ -1,7 +1,7 @@
 {
     "x":0,
     "type":"Dialog",
-    "selectedBox":4,
+    "selectedBox":2,
     "selecteID":4,
     "searchKey":"Dialog,regDialog",
     "props":{"width":300,"var":"regDialog","sceneColor":"#000000","runtime":"script/dialogView.js","renderType":"mask","isModal":true,"height":200},
@@ -32,10 +32,10 @@
         {
             "x":15,
             "type":"Label",
-            "searchKey":"Label",
-            "props":{"y":100,"x":100,"width":244,"text":"对不起，注册功能暂未开放！","styleSkin":"comp/label.png","pivotY":12,"pivotX":72,"height":23,"fontSize":20,"font":"Helvetica"},
+            "searchKey":"Label,dialogLabel",
+            "props":{"y":100,"x":100,"width":244,"var":"dialogLabel","styleSkin":"comp/label.png","pivotY":12,"pivotX":72,"height":23,"fontSize":20,"font":"Helvetica"},
             "nodeParent":2,
-            "label":"Label",
+            "label":"dialogLabel",
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
