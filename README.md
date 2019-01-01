@@ -1,4 +1,4 @@
 # layaDemo
-it's a experiment for Laya :)
-Download layaIDE and open a project,
+it's a experiment for Laya :)<br/>
+Download layaIDE and open a project<br/>
 choose the myLaya.laya
